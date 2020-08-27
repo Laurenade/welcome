@@ -1,10 +1,11 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import Welcome from "./components/welcome/Welcome";
 import Clock from "./components/clock/Clock";
 import Contact from "./components/contact/Contact";
 import Navigation from "./components/navigation/Navigation";
+import MIA from "./components/mia/MIA";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         />
         <Route exact path="/clock" component={Clock} />
         <Route exact path="/contact/:dataEntered" component={Contact} />
+        <Route exact component={MIA}></Route>
       </Switch>
     </div>
   );
