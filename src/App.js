@@ -4,6 +4,7 @@ import "./App.css";
 import Welcome from "./components/welcome/Welcome";
 import Clock from "./components/clock/Clock";
 import Contact from "./components/contact/Contact";
+import Jeopardy from "./components/jeopardy/Jeopardy";
 import Navigation from "./components/navigation/Navigation";
 import MIA from "./components/mia/MIA";
 
@@ -14,12 +15,15 @@ function App() {
       <Switch>
         <Route
           exact
-          path="/:dataEntered"
-          render={(props) => <Welcome {...props} />}
+          path="/"
+          render={(props) => <Welcome {...props} name="Lauren" />}
         />
+        <Route path="/welcome/:name" component={Welcome} />
         <Route exact path="/clock" component={Clock} />
-        <Route exact path="/contact/:dataEntered" component={Contact} />
-        <Route exact component={MIA}></Route>
+        <Route exact path="/contact" component={Contact} />
+        <Route exact path="/jeopardy" component={Jeopardy} />
+        <Route path="/contact/:dataEntered" component={Contact} />
+        <Route exact component={MIA} />
       </Switch>
     </div>
   );
@@ -27,4 +31,5 @@ function App() {
 
 export default App;
 
-//<Route component={Error}></Route>    https://codewithstupid.com/react-router-with-switch-and-link/
+//removed storage//
+/*  */

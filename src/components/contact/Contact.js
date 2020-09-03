@@ -61,10 +61,7 @@ class Contact extends React.Component {
             <label htmlFor="firstName">First Name:</label>
             <input
               name="firstName"
-              value={
-                this.state.formData.firstName ||
-                this.props.match.params.dataEntered
-              }
+              value={this.state.formData.firstName}
               placeholder="Enter first name..."
               required
               minLength={1}
