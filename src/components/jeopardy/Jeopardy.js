@@ -16,20 +16,25 @@ class Jeopardy extends Component {
     return this.client.getQuestion().then((result) => {
       this.setState({
         data: result.data[0],
-        score: [],
       });
-      // let newScore =
-      //   score +
-      //   // ????????????????????????????
-      //   // let score = [];
-      //   // for (let index = 0; index < score.length; index += 1) {
-      //   //   let scoreSum = score.push;
-      //   //   return score + score[index];
-      //   // }
-
-      //   console.log(this.state.data.answer);
     });
   }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+
+    let newScore = 0;
+
+    this.setState({
+      isSubmitted: true,
+    });
+  };
+  // if (compare answer from form and APi) {
+  //if same, chnage vlaue of new to be this.state to new value
+  //if not this.state.score - vals.... call set state score to new value....updates to new
+
+  // console.log(this.state.data.answer);
+
   // score update from jon....
   // subnit handler... create new variable "new scroe"  = 0,
   // if ...compare answer from form and APi, is same chnage vlaue
@@ -50,9 +55,31 @@ class Jeopardy extends Component {
         <br />
         <strong>Category: </strong> {this.state.data.category.title}
         <br />
-        <strong>Users Score: </strong> {this.state.score}
+        <form onSubmit={this.handleSubmit}>
+          <div>
+            <label htmlFor="answer">
+              <strong>Answer: </strong>
+            </label>
+            <input type="text" className="input" />
+          </div>
+          <button type="submit" className="submit">
+            Submit
+          </button>
+          <strong>Users Score: </strong> {this.state.score}
+        </form>
       </div>
     );
   }
 }
 export default Jeopardy;
+
+// my attempts //  things removed
+//   score +
+//   // ????????????????????????????
+//   // let score = [];
+//   // for (let index = 0; index < score.length; index += 1) {
+//   //   let scoreSum = score.push;
+//   //   return score + score[index];
+//   // }
+
+// <button className="submit">Submit</button>

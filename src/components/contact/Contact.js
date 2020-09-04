@@ -31,23 +31,21 @@ class Contact extends React.Component {
   };
 
   handleReset = (event) => {
-    event.preventDefault();
-
-    this.state = {
+    this.setState({
       isSubmitted: false,
       formData: {
         firstName: "",
         lastName: "",
       },
-    };
+    });
   };
 
   render() {
     if (this.state.isSubmitted) {
       return (
         <div className="Contact">
-          <h2>Thank you!</h2>
-          <p>We will contact you.</p>
+          <h2>Thank you for your submission!</h2>
+          <p>We will contact you soon.</p>
           <button type="reset" onClick={this.handleReset}>
             Reset
           </button>
@@ -66,7 +64,6 @@ class Contact extends React.Component {
               required
               minLength={1}
               onChange={this.handleChange}
-              required
             />
           </div>
           <div>
@@ -78,13 +75,12 @@ class Contact extends React.Component {
               required
               minLength={1}
               onChange={this.handleChange}
-              required
             />
           </div>
           <button>Submit</button>
         </form>
         <div>
-          Full Name: {this.props.match.params.dataEntered}{" "}
+          Full Name: {this.state.formData.firstName}{" "}
           {this.state.formData.lastName}
         </div>
       </div>
