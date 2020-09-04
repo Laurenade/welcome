@@ -24,22 +24,29 @@ class Jeopardy extends Component {
     event.preventDefault();
 
     let newScore = 0;
-
+    if (this.state.data.answer === event.target.value) {
+      return (newScore = this.state.score + this.state.data.value);
+    } else {
+      return (newScore = this.state.score - this.state.data.value);
+    }
     this.setState({
-      isSubmitted: true,
+      score: newScore,
     });
   };
+
+  //  console.log(this.state.data.answer);
+
   // if (compare answer from form and APi) {
   //if same, chnage vlaue of new to be this.state to new value
   //if not this.state.score - vals.... call set state score to new value....updates to new
-
-  // console.log(this.state.data.answer);
 
   // score update from jon....
   // subnit handler... create new variable "new scroe"  = 0,
   // if ...compare answer from form and APi, is same chnage vlaue
   // of new to be this.state to new value, if not this.stae.score - vals....
   // call set state sacre to new value....updates to new
+
+  //////////////
 
   //when the component mounts, get the first question
   componentDidMount() {
