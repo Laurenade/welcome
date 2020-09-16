@@ -18,7 +18,12 @@ function App() {
           path="/"
           render={(props) => <Welcome {...props} name="Lauren" />}
         />
-        <Route path="/welcome/:name" component={Welcome} />
+        <Route
+          path="/welcome/:name"
+          render={(props) => (
+            <Welcome {...props} name={props.match.params.name} />
+          )}
+        />
         <Route exact path="/clock" component={Clock} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/jeopardy" component={Jeopardy} />
