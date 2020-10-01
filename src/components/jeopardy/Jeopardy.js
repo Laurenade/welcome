@@ -17,34 +17,29 @@ class Jeopardy extends Component {
       this.setState({
         data: result.data[0],
       });
+      console.log(this.state.data.answer);
     });
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
-
     let newScore = 0;
     if (this.state.data.answer === event.target.value) {
-      return (newScore = this.state.score + this.state.data.value);
+      newScore = this.state.score + this.state.data.value;
     } else {
-      return (newScore = this.state.score - this.state.data.value);
+      newScore = this.state.score - this.state.data.value;
     }
     this.setState({
       score: newScore,
     });
+    this.getNewQuestion();
   };
 
-  //  console.log(this.state.data.answer);
+  ///////////////
 
   // if (compare answer from form and APi) {
   //if same, chnage vlaue of new to be this.state to new value
   //if not this.state.score - vals.... call set state score to new value....updates to new
-
-  // score update from jon....
-  // subnit handler... create new variable "new scroe"  = 0,
-  // if ...compare answer from form and APi, is same chnage vlaue
-  // of new to be this.state to new value, if not this.stae.score - vals....
-  // call set state sacre to new value....updates to new
 
   //////////////
 
@@ -52,6 +47,7 @@ class Jeopardy extends Component {
   componentDidMount() {
     this.getNewQuestion();
   }
+
   //display the results on the screen
   render() {
     return (
@@ -72,21 +68,10 @@ class Jeopardy extends Component {
           <button type="submit" className="submit">
             Submit
           </button>
-          <strong>Users Score: </strong> {this.state.score}
         </form>
+        <strong>Users Score: </strong> {this.state.score}
       </div>
     );
   }
 }
 export default Jeopardy;
-
-// my attempts //  things removed
-//   score +
-//   // ????????????????????????????
-//   // let score = [];
-//   // for (let index = 0; index < score.length; index += 1) {
-//   //   let scoreSum = score.push;
-//   //   return score + score[index];
-//   // }
-
-// <button className="submit">Submit</button>
